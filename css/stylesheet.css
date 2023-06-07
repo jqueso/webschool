@@ -1,0 +1,269 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Times, sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(../img/kimetsu.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: rgba(0,0,255, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+.logo{
+    font-size: 2em;
+    color: white;
+    user-select: none;
+}
+.navigation a{  
+    position: relative;
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+.navigation a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: white;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+.navigation a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.navigation .btnLogin-popup{
+    width: 130px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: white;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+.navigation .btnLogin-popup:hover{
+    background: white;
+    color: darkred;
+}
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px powderblue , 2px 2px 20px inset lime;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(123, 222, 74, 0.3);
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+}
+.wrapper.active-popup{
+    transform: scale(1);
+}
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgb(71, 158, 192);
+    display: flex;
+    font-size: 2em;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    padding: 10px;
+    z-index: 10;
+    cursor: pointer;
+}
+.wrapper.active{
+    height: 450px;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+.wrapper .form-box.login{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+.wrapper .form-box.register{
+    position: absolute;
+    transform: translateX(400px);
+}
+.wrapper.active .form-box.register{
+    position: absolute;
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+.form-box h2{
+    font-size: 2.3em;
+    color: powderblue;
+    text-align: center;
+    text-shadow: 5px 5px 10px black;
+    border-radius: 10px;
+}
+
+.input-box{
+    position: relative;;
+    width: 100%;
+    height: 50px;
+    border-bottom:2px solid #162938;
+    margin: 30px 0;
+}
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    pointer-events: none;
+    transition:.5s
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: maroon;
+    -webkit-text-stroke-width: 1px;
+    font-weight: bold;
+    -webkit-text-stroke-color: purple;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: white;
+    line-height: 57px;
+}
+.remember-forgot{
+    font-size: .9em;
+    color: powderblue;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.remeber-forgot label input{
+    accent-color: powderblue;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: rgb(60, 105, 173);
+    text-decoration: none;
+}
+.remember-forgot a:hover{
+    color:rgba(14, 224, 185, 0.77);
+    text-decoration: underline;
+}
+
+.btn{
+    width: 100%;
+    height: 45px;
+    background: rgb(87, 87, 191);
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    transition: .2s;
+
+}
+.btn:hover{
+    background: rgba(87, 87, 191, 0.649);
+
+}
+
+.login-register{
+    font-size: .9em;
+    color: powderblue;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+.login-register p a{
+    color: rgb(60, 105, 173);
+    text-decoration: none;
+    font-weight: 600;
+}
+.login-register p a:hover{
+    color:rgba(14, 224, 185, 0.77);
+    text-decoration: underline; 
+    font-weight: 600;
+}
+.navigation ul{
+    list-style-type: none;
+    display: flex;
+    position: relative;
+    top: 13px;
+}
+.navigation ul li ul{
+    display: none;
+    background: rgba(50, 205, 50, 0.746);
+    position: absolute;
+    transform: translate(10px, 10px);
+    padding: 10px 0;
+    padding-right: 10px;
+    transition: .2s ease;
+}
+.navigation ul li:hover > ul{
+    display: block;
+    
+}
+.navigation ul li ul li{
+    width: 100%;
+    padding: 10px;
+}
+.navigation ul li ul li button{
+    position: relative;
+    top: -10px;
+}

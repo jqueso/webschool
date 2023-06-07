@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">Quilaton University</h2>
+        <nav class="navigation">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li>
+                    <a href="">Student</a>
+                    <ul>
+                        <li><a href="./html/Animation.html">Animation</a></li>
+                        <li><a href="./html/ipadressValidation.html">IP Address Validation</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Contact</a></li>
+                <li><button class="btnLogin-popup">Login</button></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <span class="icon-close">
+            <img src="img/exit.webp" alt="exit" height="25" width="25">
+        </span>
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="./html/Log-in_successful.html">
+                <div class="input-box">
+                    <span class="icon">
+                        <img src="img/mail-icon.png" height="25" width="25" name="mail-icon">
+                    </span>
+                    <input type="email" id="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <img src="img/lock-icon.webp" height="25" width="25" name="lock-icon">
+                    </span>
+                    <input type="password" id="pwsd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                    <label for="pwsd">Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label for="checkbox">
+                        <input type="checkbox" id="checkbox">Remember me
+                    </label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    <p>Don't have an account?
+                        <a href="#" class="register-link">Register</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-box register">
+            <h2>Registration</h2>
+            <form action="./html/registered_successful.html">
+                <div class="input-box">
+                    <span class="icon">
+                        <img src="img/user.png" height="25" width="25" name="mail-icon">
+                    </span>
+                    <input type="username" id="username" pattern=".{5,}" title="Must contain atleast 5 characters" required>
+                    <label for="username">Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <img src="img/mail-icon.png" height="25" width="25" name="mail-icon">
+                    </span>
+                    <input type="email" id="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <img src="img/lock-icon.webp" height="25" width="25" name="lock-icon">
+                    </span>
+                    <input type="password" id="pwsd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                    <label for="pwsd">Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label for="checkbox">
+                        <input type="checkbox" id="checkbox">I agree to the terms & conditions
+                    </label>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <div class="login-register">
+                    <p>Already have an account?
+                        <a href="#" class="login-link">Login</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/script1.js"></script>
+    <script type="module" src="js/script2.js"></script>
+    <script nomodule src="js/script3.js"></script>
+</body>
+
+</html>

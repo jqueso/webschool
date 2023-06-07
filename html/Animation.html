@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <title>Animation box</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body{
+            background: url(../img/kimetsu.jpg) no-repeat;
+            background-size: cover;
+        }
+
+        header {
+            background-color: blue;
+            padding: 5px;
+            text-align: center;
+            font-size: 12px;
+            color: brown;
+        }
+
+        nav {
+            float: center;
+            width: 25%;
+            height: 300px;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        article {
+            float: left;
+            padding: 20px;
+            width: 30%;
+            height: 300px;
+            background-color: rgba(89, 245, 123, 0.786);
+            border: 1px solid rgba(154, 203, 194, 0.785);
+            border-radius: 10px;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background-color: red;
+            padding: 10px;
+            text-align: center;
+            color: black;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #cdb4db;
+            position: absolute;
+            animation: moving 5s infinite;
+            box-shadow: 10px 10px 20px grey;
+            border-radius: 30%;
+        }
+
+        @keyframes moving {
+            0% {
+                right: 150px;
+                top: 150px;
+                background-color: #ff0000cb;
+            }
+
+            25% {
+                right: 600px;
+                top: 150px;
+                background-color: #00ff00cb;
+            }
+
+            50% {
+                right: 600px;
+                top: 400px;
+                background-color: #0000ffba;
+            }
+
+            75% {
+                right: 150px;
+                top: 400px;
+                background-color: #a0ced9a0;
+            }
+
+            100% {
+                right: 150px;
+                top: 150px;
+                background-color: #adf7b6af;
+            }
+        }
+        p{
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <article class="regular">
+        <label for="num1">Enter a number:</label>
+        <input type="number" id="num1" placeholder="Enter a number" maxlength="10">
+        <input type="button" id="btn1" onclick="click()" value="Enter">
+    </article>
+    <nav>
+        <div>
+            <p class="output" id="output1"></p>
+        </div>
+    </nav>
+    <script>
+        const txt1 = document.getElementById('num1');
+        const btn1 = document.getElementById('btn1');
+        const out1 = document.getElementById('output1');
+        function fun1() {
+            out1.innerHTML = txt1.value;
+        }
+        btn1.addEventListener('click', fun1);
+    </script>
+</body>
+
+</html>

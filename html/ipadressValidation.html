@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation for IP Address</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            
+            background: url(../img/kimetsu.jpg) no-repeat;
+            background-size: cover;
+        }
+        .container{
+            width: 500px;
+            border: 2px solid black;
+            padding: 40px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: calc(100% / 4);
+            background-color: rgba(0, 255, 0, 0.63);
+            box-shadow: 10px 10px 20px grey;
+        }
+        h2, h4{
+            text-align: center;
+        }
+        h4{
+            margin: 0 auto;
+            background: rgba(176, 224, 230, 0.7);
+        }
+        #inputs {
+            border: 1px solid black;
+            width: 166px;
+        }
+
+        input[type='number'] {
+            width: 35px;
+            padding: 5px;
+            border: none;
+            outline: none;
+            text-align: center;
+            background: none;
+        }
+        input[type='number']:hover {
+            background: white;
+        }
+        input[type='number']:focus {
+            opacity: 0.6;
+        }
+
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Validation for IP Address</h2>
+        <hr>
+        <h3 align="center"><br>Input a number<br><br></h3>
+        <label for="input1"></label>
+        <h4 id="inputs">
+            <input type="number" id="num1" oninput="input1()" maxlength="3" min="0" max="223">.
+            <input type="number" id="num2" oninput="input2()" maxlength="3" min="0" max="255">.
+            <input type="number" id="num3" oninput="input3()" maxlength="3" min="0" max="255">.
+            <input type="number" id="num4" oninput="input4()" maxlength="3" min="0" max="254">
+        </h4>
+        <p><br>Result: </p>
+        <p id="demo"></p>
+    </div>
+    <script>
+        
+
+        function input1() {
+            var classA = "Class A";
+            var classB = "Class B";
+            var classC = "Class C";
+            var a = document.getElementById('num1').value;
+
+            if (a >= 1 && a <= 223) {
+                if (a >= 1 && a <= 126) {
+                    text = classA + "<br>";
+                }
+                else if (a == 127) {
+                    alert("Ip address starting with 127 are not valid because they are reserved for loopback addresses. Please specify some other valid value between 1 and 223.");
+                }
+                else if (a >= 128 && a <= 191) {
+                    text = classB + "<br>";
+                }
+                else {
+                    text = classC + "<br>";
+                }
+                document.getElementById("demo").innerHTML = text;
+            }
+            else {
+                alert("Invalid inputs, it must be in 1-223");
+            }
+        }
+        function input2() {
+            var b = document.getElementById('num2').value;
+            if (b > 0 && b < 256) {}
+            else {
+                alert("The combination of Ip address and submnet mask is invalid. All of the bits in the host address portion of the IP address are set to 1. Please enter a valid combination of IP address and subnet mask.");
+            }
+        }
+        function input3() {
+            var a = document.getElementById('num3').value;
+            if (a > 0 && a < 256) {
+
+            }
+            else {
+                alert("The combination of Ip address and submnet mask is invalid. All of the bits in the host address portion of the IP address are set to 1. Please enter a valid combination of IP address and subnet mask.");
+            }
+        }
+        function input4() {
+            var a = document.getElementById('num4').value;
+            if (a > 0 && a < 255) {
+
+            }
+            else {
+                alert("The combination of Ip address and submnet mask is invalid. All of the bits in the host address portion of the IP address are set to 1. Please enter a valid combination of IP address and subnet mask.");
+            }
+        }
+        // document.querySelectorAll("input[type='number']").forEach(input => {
+        //     input.oninput = () => {
+        //         if (input.value.length > input.maxLength) input.value = input.value.slice(0, input.maxLength);
+        //     };
+        // });
+    </script>
+</body>
+</html>
